@@ -9,6 +9,11 @@ var storage = firebase.storage();
 // 3. when you click on the story, recall story from firebase with that title.
 // 4. display that story in the story page. 
 
+
+function pullStory(whichStory){
+
+}
+
 // this function will get all the story names from firebase 
 // and put them in the list on the homepage, id = homeNEStories
 
@@ -23,7 +28,9 @@ function displayStories(){
 			querySnapshot.forEach(function(doc){
 				console.log(doc.id, "=>", doc.data());
 				title = doc.data().storyname;
-				prettyList = "<li id='"+title+"'><a href='story.html'>"+title+"</a></li>";
+				// prettyList = "<li id='"+title+"'>"+title+"</li>";
+				// prettyList = "<li><button type='button' class='storyButton' id='"+title+"'>"+title+"</button></li>";
+				prettyList = "<li><a href='story.html#"+title+"'class='storyButton' id='"+title+"'>"+title+"</a></li>";
 				fillHome.append(prettyList);
 			});
 		})
@@ -31,6 +38,7 @@ function displayStories(){
 			console.log("you done fucked up.", error);
 		});
 }
+
 
 $(document).ready(function(){
 	displayStories();
