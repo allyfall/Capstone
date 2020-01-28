@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+ 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  	crossorigin="anonymous"></script>
+	<script src="js/script.js" defer></script>
+	<link rel="stylesheet" href="css/style.css">
+	<title>Yggdrasil Facts</title>
+</head>
+<body>
+	<div class="storyNav">
+		<h1>The Yggdrasil Project</h1>
+		<nav>
+			<ul>
+				<li><a href="home.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="featured.html">Featured</a></li>
+			</ul>
+		</nav>
+	</div>
+	<!-- maybe have an aside with a featured section? Also, I'm feeling like you should be able to view a category page from anywhere on the site. So should that be in an aside?-->
+	<main>
+		<h2>Articles on: The Facts of Climate Change</h2>
+		<p>dolor sit amet, consectetur adipisicing elit. Voluptatum nulla, beatae reiciendis quia eius, harum iusto autem fugiat reprehenderit possimus ab tenetur magnam, adipisci numquam totam corporis eveniet laborum aliquam?</p>
+		<!-- article titles would be listed here. I'm thinking the best way to do this might be in the site, so add the article to the list every time you add through the form? So a static list in the JS that is just article titles and can link out to articles? Use flexbox to style?-->
+		<ul class="articleList">
+			<li><a href="">Story 1</a></li>
+			<li><a href="">Story 2</a></li>
+		</ul>
+	</main>
+	<footer>
+		<ul>
+			<li><a href="">Contact Me</a> </li>
+			<li><a href="">Sources</a></li>
+		</ul>
+	</footer>
+</body>
+	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
+	<script>
+		var firebaseConfig = {
+	    apiKey: "AIzaSyDonPkFYr9auBwrfoiAdA1y17s5fKd-ae8",
+	    authDomain: "example-1b478.firebaseapp.com",
+	    databaseURL: "https://example-1b478.firebaseio.com",
+	    projectId: "capstone-5899a",
+	    storageBucket: "gs://capstone-5899a.appspot.com",
+	    messagingSenderId: "102744121825",
+	    appId: "1:102744121825:web:5c1402892c5f42ea92f2a0"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	</script>
+</html>

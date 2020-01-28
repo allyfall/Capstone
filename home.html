@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+ 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  	crossorigin="anonymous"></script>
+	<script src="js/script.js" defer></script>
+	<link rel="stylesheet" href="css/style.css">
+	<title>Yggdrasil Home</title>
+</head>
+<body>
+	<!-- home includes logo, featured story, map if I can make one?, aside with sections and tags, top bar with home, about, featured, search if I can make one, footer with contact, sources? -->
+	<!-- But I love splash pages so much... so lets try and see how it goes. -->
+	<div class="homeSplash">
+		<h1>The Yggdrasil Project</h1>
+		<p class="headerText">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque maxime sint sequi, dicta, animi odit itaque omnis numquam dolore perspiciatis porro, ducimus laboriosam vel ipsum reprehenderit exercitationem beatae officia at?</p>
+		<nav>
+			<ul>
+				<li><a href="home.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="featured.html">Featured</a></li>
+			</ul>
+		</nav>
+	</div>
+	<main>
+		<div class="mainCols">
+			<div class="mainStories">
+				<h2>Nature Experiences</h2>
+				<img src="" alt="">
+				<ul id="homeNEStories">
+				</ul>
+			</div>
+			<div class="mainFacts">
+				<h2>The Facts</h2>
+				<img src="" alt="">
+				<p></p>
+			</div>
+			<div class="mainUtopias">
+				<h2>World Saving Tips</h2>
+				<img src="" alt="">
+				<p></p>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<ul>
+			<li><a href="">Contact Me</a> </li>
+			<li><a href="">Sources</a></li>
+		</ul>
+	</footer>
+</body>
+
+	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
+	<script>
+		var firebaseConfig = {
+	    apiKey: "AIzaSyDonPkFYr9auBwrfoiAdA1y17s5fKd-ae8",
+	    authDomain: "example-1b478.firebaseapp.com",
+	    databaseURL: "https://example-1b478.firebaseio.com",
+	    projectId: "capstone-5899a",
+	    storageBucket: "gs://capstone-5899a.appspot.com",
+	    messagingSenderId: "102744121825",
+	    appId: "1:102744121825:web:5c1402892c5f42ea92f2a0"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	</script>
+</html>

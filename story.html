@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+ 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  	crossorigin="anonymous"></script>
+	<script src="js/script.js" defer></script>
+	<link rel="stylesheet" href="css/style.css">
+	<title>Yggdrasil</title>
+	<!-- How to I make this display the story title? How much of this site is going to need to be generated w/ JS? like all of it?  -->
+</head>
+<body>
+	<div class="storyNav">
+		<h1>The Yggdrasil Project</h1>
+		<nav>
+			<ul>
+				<li><a href="home.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="featured.html">Featured</a></li>
+			</ul>
+		</nav>
+	</div>
+	<main class="storyMain">
+		<h2 class="storyHeader"></h2>
+		<div class="storyDiv"></div>
+	</main>
+	<footer>
+		<ul>
+			<li><a href="">Contact Me</a> </li>
+			<li><a href="">Sources</a></li>
+		</ul>
+	</footer>
+</body>
+	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
+	<script>
+		var firebaseConfig = {
+	    apiKey: "AIzaSyDonPkFYr9auBwrfoiAdA1y17s5fKd-ae8",
+	    authDomain: "example-1b478.firebaseapp.com",
+	    databaseURL: "https://example-1b478.firebaseio.com",
+	    projectId: "capstone-5899a",
+	    storageBucket: "gs://capstone-5899a.appspot.com",
+	    messagingSenderId: "102744121825",
+	    appId: "1:102744121825:web:5c1402892c5f42ea92f2a0"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	</script>
+</html>
