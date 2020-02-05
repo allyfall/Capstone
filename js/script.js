@@ -35,11 +35,28 @@ function displayStories(){
 			});
 		})
 		.catch(function(error){
-			console.log("you done fucked up.", error);
+			console.log("you messed up.", error);
 		});
 }
 
 
+// var navBar = $('.topBar');
+// var sticky = navBar.offsetTop;
+
 $(document).ready(function(){
 	displayStories();
+	var menu = $('.topBar'); 
+	var	pos = menu.offset();
+	$(window).scroll(function(){
+		console.log("sticky entered");
+		if($(this).scrollTop() > pos.top+menu.height() && menu.hasClass('noStick')){
+			menu.fadeOut('fast', function(){
+				$(this).removeClass('noStick').addClass('stick').fadeIn('fast');
+			})
+		} else if($(this).scrollTop() <= pos.top && menu.hasClass('stick')){
+			menu.fadeOut('fast', function(){
+				$(this).removeClass('stick').addClass('noStick').fadeIn('fast');
+			});
+		}
+	});
 });

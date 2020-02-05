@@ -7,48 +7,62 @@
   	crossorigin="anonymous"></script>
 	<script src="js/script.js" defer></script>
 	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display|Playfair+Display+SC|Raleway&display=swap" rel="stylesheet">
 	<title>Yggdrasil Home</title>
 </head>
 <body>
-	<!-- home includes logo, featured story, map if I can make one?, aside with sections and tags, top bar with home, about, featured, search if I can make one, footer with contact, sources? -->
-	<!-- But I love splash pages so much... so lets try and see how it goes. -->
-	<div class="homeSplash">
-		<h1>The Yggdrasil Project</h1>
-		<p class="headerText">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque maxime sint sequi, dicta, animi odit itaque omnis numquam dolore perspiciatis porro, ducimus laboriosam vel ipsum reprehenderit exercitationem beatae officia at?</p>
-		<nav>
-			<ul>
-				<li><a href="home.html">Home</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="featured.html">Featured</a></li>
-			</ul>
-		</nav>
-	</div>
-	<main>
-		<div class="mainCols">
-			<div class="mainStories">
-				<h2>Nature Experiences</h2>
-				<img src="" alt="">
-				<ul id="homeNEStories">
+	<div class="bodyDiv">
+		<!-- home includes logo, featured story, map if I can make one?, aside with sections and tags, top bar with home, about, featured, search if I can make one, footer with contact, sources? -->
+		<!-- But I love splash pages so much... so lets try and see how it goes. -->
+		<div class="topBar noStick">
+			<img src="img/logo.png" alt="Yggdrasil Project logo">
+			<nav>
+				<ul>
+					<li><a href="home.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="featured.html">Featured</a></li>
 				</ul>
-			</div>
-			<div class="mainFacts">
-				<h2>The Facts</h2>
-				<img src="" alt="">
-				<p></p>
-			</div>
-			<div class="mainUtopias">
-				<h2>World Saving Tips</h2>
-				<img src="" alt="">
-				<p></p>
-			</div>
+			</nav>
 		</div>
-	</main>
-	<footer>
-		<ul>
-			<li><a href="">Contact Me</a> </li>
-			<li><a href="">Sources</a></li>
-		</ul>
-	</footer>
+		<div class="homeSplash">
+			<h1 class="mainHeader">The Yggdrasil Project</h1>
+			<p class="headerText">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque maxime sint sequi, dicta, animi odit itaque omnis numquam dolore perspiciatis porro, ducimus laboriosam vel ipsum reprehenderit exercitationem beatae officia at?</p>
+			<a href="#footer" class="downArrow"><img src="img/downarrow.png" alt="down arrow for more stories">More</a>
+		</div>
+		<main>
+			<div class="mainCols">
+				<div class= "aColumn"id="mainStories">
+					<a href="storyCat.html">
+						<h2>Nature Experiences</h2>
+						<img src="img/stock.jpg" alt="stock image">
+					</a>
+					<p>The stories in this category have been collected from the experiences of a number of outdoor enthusiasts. Here, you will find tales of wild adventures, intense animal encounters, and life changing experiences. If you are looking for inspiration to get outside and spend some time in nature, this is the place to look. </p>
+					<ul id="homeNEStories">
+					</ul>
+				</div>
+				<div class= "aColumn"id="mainFacts">
+					<a href="factCat.html">
+						<h2>The Facts</h2>
+						<img src="img/stock.jpg" alt="stock image">
+					</a>
+					<p>The news isn't always good, but it is always good to know the news. Information is the key to making an informed decision. In this category, you'll find a collection of resources, articles, and infographics on a number of relevant topics. Wondering which seafood or coffee is most sustainable? Looking for an up-to-date list of endangered species? We can point you in the right direction. </p>
+				</div>
+				<div class= "aColumn"id="mainTips">
+					<a href="tips.html">
+						<h2>World Saving Tips</h2>
+						<img src="img/stock.jpg" alt="stock image">
+					</a> 
+					<p>Saving the planet doesn't have to be hard. In this category, you'll find tips and tricks that range from taking an extra thirty seconds every week to a complete lifestyle shift. If you know you care about protecting and preserving our natural environment, but you aren't sure how to make a change (or you are searching for more changes to make), this is the place to look. </p>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<ul>
+				<li><a href="">Contact Me</a> </li>
+				<li><a href="">Sources</a></li>
+			</ul>
+		</footer>
+	</div>
 </body>
 
 	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
