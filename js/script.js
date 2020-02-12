@@ -10,10 +10,6 @@ var storage = firebase.storage();
 // 4. display that story in the story page. 
 
 
-function pullStory(whichStory){
-
-}
-
 // this function will get all the story names from firebase 
 // and put them in the list on the homepage, id = homeNEStories
 
@@ -40,23 +36,20 @@ function displayStories(){
 }
 
 
-// var navBar = $('.topBar');
-// var sticky = navBar.offsetTop;
 
 $(document).ready(function(){
-	displayStories();
+	// displayStories();
+
+	// This is for the sticky nav
+	// I think the fade is causing issues, but that can be a polishing problem. (aka later problem)
 	var menu = $('.topBar'); 
 	var	pos = menu.offset();
 	$(window).scroll(function(){
 		console.log("sticky entered");
 		if($(this).scrollTop() > pos.top+menu.height() && menu.hasClass('noStick')){
-			menu.fadeOut('fast', function(){
-				$(this).removeClass('noStick').addClass('stick').fadeIn('fast');
-			})
+			menu.removeClass('noStick').addClass('stick');
 		} else if($(this).scrollTop() <= pos.top && menu.hasClass('stick')){
-			menu.fadeOut('fast', function(){
-				$(this).removeClass('stick').addClass('noStick').fadeIn('fast');
-			});
+			menu.removeClass('stick').addClass('noStick');
 		}
 	});
 });

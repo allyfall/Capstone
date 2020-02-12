@@ -29,40 +29,42 @@ function pullStory(){
 	console.log(whichStory);
 
 	// now we need to get the text from firebase. and also the image.
-	db.collection("stories").where("storyname", "==", whichStory)
-		.get()
-		.then(function(querySnapshot){
-			querySnapshot.forEach(function(doc){
-				// console.log("im in here");
-				// console.log(doc.data());
+	// db.collection("stories").where("storyname", "==", whichStory)
+		// .get()
+		// .then(function(querySnapshot){
+		// 	querySnapshot.forEach(function(doc){
+		// 		var theStory = doc.data().storytext1;
+		// 		img = doc.data().image;
+		// 		displayImage(img);
+		// 		title = whichStory;
+		// 		storyHeader.html(title);
+		// 		storyhere.html(theStory);
+		// 		// var prettyP = "<h2>"+title+"</h2><p>"+theStory+"</p>";
+		// 		// storyhere.html(prettyP);
+		// 	});
+		// })
+		// .catch(function(error){
+		// 	console.log("Whoops..", error);
+		// });
+		var docRef = db.collection("stories").doc(whichStory);
+		docRef.get().then(function(doc){
+			if (doc.exists){
 				var theStory = doc.data().storytext1;
 				img = doc.data().image;
 				displayImage(img);
-				// console.log(img);
-				title = whichStory;
+				title = doc.data().storyname;
 				storyHeader.html(title);
 				storyhere.html(theStory);
-				// var prettyP = "<h2>"+title+"</h2><p>"+theStory+"</p>";
-				// storyhere.html(prettyP);
-			});
-		})
-		.catch(function(error){
-			console.log("Whoops..", error);
+			} else{
+				console.log("no such document");
+			}
+		}).catch(function(error){
+			console.log("error getting doc ", error);
 		});
 };
-// var navBar = $('.topBar')
-// var sticky = navBar.offsetTop;
-// function stickyBar(){
-// 	console.log("sticky entered");
-// 	if(window.pageYOffset >= sticky){
-// 		navBar.classList.add("sticky")
-// 	} else {
-// 		navBar.classList.remove("sticky");
-// 	}
-// }
 
 // This is a later problem. 
-// Thisfunction will check if the image is still stock. If yes, put badge. It no, no badge.
+// This function will check if the image is still stock. If yes, put badge. It no, no badge.
 // function imgCheck(){
 // 	var imgsrc = storyImg.attr("src");
 // 	console.log()
@@ -75,6 +77,14 @@ function pullStory(){
 
 $(document).ready(function(){
 	pullStory();
-	// displayImage("test2.jpg");
-	// imgCheck();
+	var menu = $('.topBar'); 
+	var	pos = menu.offset();
+	$(window).scroll(function(){
+		console.log("sticky entered");
+		if($(this).scrollTop() > pos.top+menu.height() && menu.hasClass('noStick')){
+			menu.removeClass('noStick').addClass('stick');
+		} else if($(this).scrollTop() <= pos.top && menu.hasClass('stick')){
+			menu.removeClass('stick').addClass('noStick');
+		}
+	});
 });
