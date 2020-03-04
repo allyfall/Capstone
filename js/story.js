@@ -22,12 +22,38 @@ function displayImage(img){
 	});
 }
 
+// this function gets the tip from the tip name
+function getTip(tipName, theStory){
+	console.log(tipName);
+	var docRef = db.collection("stories").doc(tipName);
+	var addTip = '';
+	docRef.get().then(function(doc){
+		if(doc.exists){
+			var tipTitle = doc.data().tipname;
+			var tipBlurb = doc.data().blurb;
+			var tipButtonText = doc.data().button;
+			addTip = '<small class="sidenote"><h3 class="sideHeader">'+tipTitle+'</h3><p class="sidePara">'+
+				tipBlurb+'</p><button type="button" class="sideButton">'+tipButtonText+'</button></small>';
+				// console.log(addTip);
+			theStory += addTip;
+			// return '<small class="sidenote"><h3 class="sideHeader">'+tipTitle+'</h3><p class="sidePara">'+
+				// tipBlurb+'</p><button type="button" class="sideButton">'+tipButtonText+'</button></small>';
+		}
+		else{
+			console.log("no such document");
+			// var addTip = "";
+		}
+	}).catch(function(error){
+			console.log("error getting doc ", error);
+	});
+}
+
 function pullStory(){
 	var whichStory = window.location.hash;
 	console.log(whichStory);
 	whichStory = whichStory.replace(/[_\W]+/g, "");
 	console.log(whichStory);
-
+	var countingSpace = 0;
 	// now we need to get the text from firebase. and also the image.
 	// db.collection("stories").where("storyname", "==", whichStory)
 		// .get()
@@ -49,7 +75,61 @@ function pullStory(){
 		var docRef = db.collection("stories").doc(whichStory);
 		docRef.get().then(function(doc){
 			if (doc.exists){
-				var theStory = doc.data().storytext1;
+				// var theStory = doc.data().storytext1;
+				// theStory = theStory.replace(/\\n/g,"<br /><br />");
+				var theStory = "";
+				doc.data().content.forEach(content => {
+					switch(content.type){
+						case 'copy':
+							theStory += "<p>" + content.value + "</p>";
+							break;
+						case 'img':
+							theStory += '<img src="' + content.value + '" alt="' + content.alt + '" />';
+							break;
+						case 'blockquote':
+							theStory += '<blockquote>' + content.value + '</blockquote>';
+							break;
+						case 'tip':
+							console.log(content.value);
+							// theStory += '<small class="sidenote"><h3 class="smallH>"'+content.title+'</h3><p class="sideP">'+content.blurb+'</p><a href="tip.html#"'+content.value+' class="smallLink">'+content.buttonText+'</a></small>';
+							// // countingSpace = countingSpace + 1;
+							// // theStory += getTip(tipName, theStory);
+							// // var tipReturn = getTip(tipName, theStory);
+							// // console.log(tipReturn);
+							// var docTip = db.collection("stories").doc(tipName);
+							// var addTip = '';
+							// docTip.get().then(function(doc){
+							// 	if(doc.exists){
+							// 		var tipTitle = doc.data().tipname;
+							// 		var tipBlurb = doc.data().blurb;
+							// 		var tipButtonText = doc.data().button;
+							// 		addTip = '<small class="sidenote"><h3 class="sideHeader">'+tipTitle+'</h3><p class="sidePara">'+
+							// 			tipBlurb+'</p><button type="button" class="sideButton">'+tipButtonText+'</button></small>';
+							// 			console.log(addTip);
+							// 			// theStory += '<p>'+tipTitle+'</p>';
+							// 		// theStory += '<div class="sidenote"><h3 class="sideHeader">'+tipTitle+'</h3><p class="sidePara">'+tipBlurb+'</p><button type="button" class="sideButton">'+tipButtonText+'</button></div>';
+							// 		console.log(theStory);
+							// 		// return '<small class="sidenote"><h3 class="sideHeader">'+tipTitle+'</h3><p class="sidePara">'+
+							// 			// tipBlurb+'</p><button type="button" class="sideButton">'+tipButtonText+'</button></small>';
+							// 	}
+							// 	else{
+							// 		console.log("no such document");
+							// 		// var addTip = "";
+							// 	}
+							// }).catch(function(error){
+							// 		console.log("error getting doc ", error);
+							// });
+							break;
+						case 'fact':
+							break;
+						default: 
+							// Do nothing. 
+
+					}
+				});
+				// doing the loop to build theStory+make it show up. 
+
+
 				img = doc.data().image;
 				displayImage(img);
 				title = doc.data().storyname;
@@ -62,6 +142,9 @@ function pullStory(){
 			console.log("error getting doc ", error);
 		});
 };
+// If type == copy, do this stuff. etc. for img, blockquote. Build theStory as you loop through
+
+// doc.data().content 
 
 // This is a later problem. 
 // This function will check if the image is still stock. If yes, put badge. It no, no badge.

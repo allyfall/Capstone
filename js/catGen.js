@@ -13,9 +13,10 @@ var storage = firebase.storage();
 
 
 
-function displayImage(img){
-	// console.log(img);
-	var eachThumb = $('.thumbnailHere');
+function displayImage(img, id){
+	// console.log(id);
+	var eachThumb = $("#img"+ id);
+	// console.log(eachThumb);
 	var pathRef = storage.ref(img);
 	var refURL = "gs://capstone-5899a.appspot.com/"+img+"";
 	var gsReference = storage.refFromURL(refURL);
@@ -23,37 +24,39 @@ function displayImage(img){
 		eachThumb.attr("src", url);
 		// this is also something I'll have to get from Firebase I think. 
 		eachThumb.attr("alt", "thumbnail for this story.");
-
 	});
 }
 
 function pullCat(){
 	// console.log("in pole cat.");
 	var whichCat = window.location.hash;
-	console.log(whichCat);
+	// console.log(whichCat);
 	whichCat = whichCat.replace(/[_\W]+/g, "");
-	console.log(whichCat);
+	// console.log(whichCat);
 	var title = "";
 	var blurb = "";
 	var thumbnail = "";
 	var id = "";
 	var storyList = $(".storyCatGen");
+	// var storyList = $("."+whichCat+"CatGen");
+	console.log("storylist");
+	console.log(storyList);
 	var prettyDiv = "";
-
+	// console.log(whichCat);
 	// now we need to get the title, blurb, and thumbnail from firebase. 
 	db.collection("stories").where("category", "==", whichCat)
 		.get()
 		.then(function(querySnapshot){
 			querySnapshot.forEach(function(doc){
+				// console.log(doc.data());
 				title = doc.data().storyname;
 				blurb = doc.data().blurb;
 				thumbnail = doc.data().thumbnail;
 				id = doc.id;
-				console.log(id);
 				// need to generate the div before calling displayImage
-				prettyDiv = "<div class='oneStory'><h2 class='storyHead'><a href='story.html#"+id+"'class='storyButton' id='"+title+"'>"+title+"</a></h2><img src='#' alt='#' class='thumbnailHere'><p class='storyblurb'>"+blurb+"</p></div>";
+				prettyDiv = "<div class='oneStory'><h2 class='storyHead'><a href='story.html#"+id+"'class='storyButton' id='"+id+"'>"+title+"</a></h2><img src='#' alt='#' class='thumbnailHere' id='img"+id+"'><p class='storyblurb'>"+blurb+"</p></div>";
 				storyList.append(prettyDiv);
-				displayImage(thumbnail);
+				displayImage(thumbnail, id);
 			});
 		})
 		.catch(function(error){
