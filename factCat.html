@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width initial-scale=1.0">
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
  	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   	crossorigin="anonymous"></script>
@@ -14,22 +15,24 @@
 	<div class="catDiv">
 		<!-- home includes logo, featured story, map if I can make one?, aside with sections and tags, top bar with home, about, featured, search if I can make one, footer with contact, sources? -->
 		<!-- But I love splash pages so much... so lets try and see how it goes. -->
-		<div class="topBar noStick">
-			<img src="img/logo.png" alt="Yggdrasil Project logo">
-			<nav>
-				<ul>
-					<li><a href="home.html">Home</a></li>
-					<li><a href="about.html">About</a></li>
-					<div class="dropdown">
-						<li class="dropbtn"> Categories</li>
-						<div class="drop-content">
-							<a href="storyCat.html#story">Wild Tales</a>
-							<a href="factCat.html#facts">Facts</a>
-							<a href="tips.html#tips">Tips</a>
+		<div class="nav-wrap">
+			<div class="topBar noStick">
+				<a href="home.html"><img src="img/logo.svg" alt="Yggdrasil Project logo" class="logo"></a>
+				<nav>
+					<ul class="accordion">
+						<li><a href="about.html">About</a></li>
+							<!-- <li>Categories</li> -->
+						<div class="dropdown">
+							<li class="dropbtn"> Categories</li>
+							<div class="drop-content">
+								<a href="storyCat.html#story">Wild Tales</a>
+								<a href="factCat.html#facts">Facts</a>
+								<a href="tips.html#tips">Tips</a>
+							</div>
 						</div>
-					</div>
-				</ul>
-			</nav>
+					</ul>
+				</nav>
+			</div>
 		</div>
 		<div class="storyCatSplash">
 			<h1 class="catHeader">What's up in the World?</h1>
@@ -41,12 +44,12 @@
 				
 			</div>
 		</main>
-		<footer>
+<!-- 		<footer>
 			<ul>
 				<li><a href="">Contact Me</a></li>
 				<li><a href="">Sources</a></li>
 			</ul>
-		</footer>
+		</footer> -->
 	</div>
 </body>
 	<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>

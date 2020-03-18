@@ -51,10 +51,10 @@ function pullCat(){
 				// console.log(doc.data());
 				title = doc.data().storyname;
 				blurb = doc.data().blurb;
-				thumbnail = doc.data().thumbnail;
+				thumbnail = doc.data().image;
 				id = doc.id;
 				// need to generate the div before calling displayImage
-				prettyDiv = "<div class='oneStory'><h2 class='storyHead'><a href='story.html#"+id+"'class='storyButton' id='"+id+"'>"+title+"</a></h2><img src='#' alt='#' class='thumbnailHere' id='img"+id+"'><p class='storyblurb'>"+blurb+"</p></div>";
+				prettyDiv = "<div class='oneStory'><a href='story.html#"+id+"'class='storyButton' id='"+id+"'><h2 class='storyHead'>"+title+"</h2><img src='#' alt='#' class='thumbnailHere' id='img"+id+"'><p class='storyblurb'>"+blurb+"</p></a></div>";
 				storyList.append(prettyDiv);
 				displayImage(thumbnail, id);
 			});
@@ -75,7 +75,7 @@ $(document).ready(function(){
 	var	pos = menu.offset();
 	$(window).scroll(function(){
 		console.log("sticky entered");
-		if($(this).scrollTop() > pos.top+menu.height() && menu.hasClass('noStick')){
+		if($(this).scrollTop() > pos.top && menu.hasClass('noStick')){
 			menu.removeClass('noStick').addClass('stick');
 		} else if($(this).scrollTop() <= pos.top && menu.hasClass('stick')){
 			menu.removeClass('stick').addClass('noStick');

@@ -36,18 +36,17 @@ function displayStories(){
 }
 
 
-
 $(document).ready(function(){
-	// displayStories();
-
 	// This is for the sticky nav
 	// I think the fade is causing issues, but that can be a polishing problem. (aka later problem)
 	var menu = $('.topBar'); 
 	var	pos = menu.offset();
-	var where = menu.height()+100;
+	var where = menu.height();
+	console.log(where);
+	var sticky = pos.top;
+	console.log(sticky);
 	$(window).scroll(function(){
-		console.log("sticky entered");
-		if($(this).scrollTop() > pos.top+where && menu.hasClass('noStick')){
+		if($(this).scrollTop() > pos.top && menu.hasClass('noStick')){
 			menu.removeClass('noStick').addClass('stick');
 		} else if($(this).scrollTop() <= pos.top && menu.hasClass('stick')){
 			menu.removeClass('stick').addClass('noStick');

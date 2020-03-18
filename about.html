@@ -2,35 +2,74 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width initial-scale=1.0">
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
  	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   	crossorigin="anonymous"></script>
-	<script src="js/script.js" defer></script>
+	<script src="js/about.js" defer></script>
 	<link rel="stylesheet" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display|Playfair+Display+SC|Raleway&display=swap" rel="stylesheet">
 	<title>About Yggdrasil</title>
 </head>
 <body>
-	<div class="storyNav">
+	<div class="aboutPage">
 		<h1>About the Yggdrasil Project</h1>
-		<nav>
-			<ul>
-				<li><a href="home.html">Home</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="featured.html">Featured</a></li>
-			</ul>
-		</nav>
+		<div class="nav-wrap">
+			<div class="topBar noStick">
+				<a href="home.html"><img src="img/logo.svg" alt="Yggdrasil Project logo" class="logo"></a>
+				<nav>
+					<ul class="accordion">
+						<li><a href="about.html">About</a></li>
+							<!-- <li>Categories</li> -->
+						<div class="dropdown">
+							<li class="dropbtn"> Categories</li>
+							<div class="drop-content">
+								<a href="storyCat.html#story">Wild Tales</a>
+								<a href="factCat.html#facts">Facts</a>
+								<a href="tips.html#tips">Tips</a>
+							</div>
+						</div>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<main class="aboutPageMain">
+			<!-- <h2>Sustainability Rooted in Information and Intention</h2> -->
+			<!-- <img src="img/logo.svg" alt="Yggdrasil Project Logo" class="bigLogo"> -->
+			<p>Yggdrasil is a project in three parts:</p>
+			<ol>
+				<li>stories from outdoor enthusiasts, ranging from wild, life-changing adventures to mundane moments in nature</li>
+				<li>relevant facts about the state of the environment and climate change written in digestible and easily understandable prose (with associated resources to learn more)</li>
+				<li>tips on how to live a more environmentally-friendly and sustainable life based off of the facts and stories</li>
+			</ol>
+			<p>The objective is to increase awareness of the most pressing environmental issues, offer suggestions for easy-to-make lifestyle changes, and use facts and stories to remind readers why the planet is worth fighting for. </p>
+			<div class="aboutFolder">
+				<h3 class="question">Why are stories important in the fight against climate change? Why not just facts and tips? </h3>
+				<div class="response">
+					<p>Well, there is a strong body of research showing that a major reason people don’t take action to address climate change is that they feel powerless. A survey from Yale Climate Communication found that almost 70% of Americans believe that global warming is happening, however only 30% of those people feel empowered to make a difference. </p>
+					<p>A large part of this feeling of disempowerment is related to emotional and intellectual exhaustion. Under a constant barrage of news (often bad), many have a hard time staying motivated to take action on environmental issues. </p>
+					<p>Stories of outdoor adventures can encourage readers to have adventures of their own, and the more people get outside, the more energized and connected to the environment they feel. In addition, stories remind us of what we have to lose. Talking about experiences seeing glaciers reminds folks that their children or grandchildren may never have the same opportunity. By using human narratives to frame environmental issues, the scale and impact of these crises become visible while simultaneously motivating and inspiring readers. </p>
+				</div>
+				<h3 class="question">Where did the stories come from?</h3>
+				<div class="response">
+					<p>These stories have been sourced from a number of outdoor enthusiasts from a number of circles. Big thanks to Chauntelle, Scott, Ben, Annabelle, and Gail for providing me with adventures and information. 
+					</p>
+				</div>
+				<h3 class="question">Where did the information come from? </h3>
+				<div class="response">
+					<p>The facts and tips have come from a number of sources and outside research over the course of my lifetime. Much of it came from a number of books, including James Speth’s “Red Sky at Morning,” Richard Louv’s “Last Child in the Wilderness,” and Michael Pollan’s “The Omnivore’s Dilemma”. </p>
+					<p>Other sources include interviews and newsletters from Gail Garey’s “Save the Planet Series” (savetheplanetseries.com). </p>
+					<p>Of course, internet research provided a lot of the statistics and details. As often as possible, I used government or educational sites for statistics and listed the source following the stat. For a full list of sources and sites used, please feel free to contact me at ally.faller@gmail.com. </p>
+				</div>
+				<h3 class="question">Why this project?</h3>
+				<div class="response">
+					<p>The short answer is because I care a lot about the environment. The long answer is essentially the same: I was born and raised in the outdoors. Everything I care about traces back in some or another way to nature. I am my best self when I am outside and surrounded by trees. To think of the harm that humans have done to our planet and the price that we, as a species, are going to pay for that in the future horrifies me. And I know that the more I think about the climate crisis, the more upset and hopeless I tend to feel. I’m not alone in this emotion—many people fight feelings of depression. So many, in fact, that the American Psychological Association coined a new term: eco-anxiety. </p>
+					<p>This feeling is crippling. It can bring people to surrender to what begins to feel inevitable, to give up when we need them most to fight back. I know that I draw much of my inspiration, my reason to keep fighting, from my own experiences. But for those that lack the experiences, the stories, I wanted to provide a few. I believe in the power of storytelling, and I believe in the power of humans to turn this situation around. I believe there is still hope if we take action now, and I wanted to share that hope with a larger community of readers. </p>
+					<p>I most sincerely hope that this project inspires, motivates, and interests you to become more interested in the surrounding world and take action to protect it. </p>
+					<p>Have a story you want to share? Don’t hesitate to contact me—this is a living, growing project. You can find me at ally.faller@gmail.com. </p>
+				</div>
+			</div>
+		</main>
 	</div>
-	<!-- maybe have an aside with a featured section? Also, I'm feeling like you should be able to view a category page from anywhere on the site. So should that be in an aside?-->
-	<main>
-		<h2>Lorem Ipsum...</h2>
-		<p>dolor sit amet, consectetur adipisicing elit. Voluptatum nulla, beatae reiciendis quia eius, harum iusto autem fugiat reprehenderit possimus ab tenetur magnam, adipisci numquam totam corporis eveniet laborum aliquam?</p>
-	</main>
-	<footer>
-		<ul>
-			<li><a href="">Contact Me</a> </li>
-			<li><a href="">Sources</a></li>
-		</ul>
-	</footer>
 </body>
 </html>

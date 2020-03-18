@@ -44,15 +44,15 @@ body {
 	line-height: 1;
 	font-family: "Raleway", sans-serif; 
 }
-ol, ul {
+/*ol, ul {
 	list-style: none;
-}
+}*/
 html{
 	position: relative;
-	min-height: 100%;
+	/*min-height: 100%;*/
 }
 main{
-	min-height: 100%;
+	/*min-height: 100%;*/
 	margin-bottom: 2%;
 }
 h1{
@@ -86,30 +86,40 @@ nav li{
 	font-size: 1.2em;
 }
 .topBar img{
-	max-height: 90px;
+	max-height: 65px;
+	margin-top:5px;
 }
 .bodyDiv{
 	display: grid;
 }
 .topBar{
 	/*This is the grid row top bar in the bodyDiv grid.*/
-	grid-row:1; 
+	/*grid-row:1; */
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr; 
 	background-color:#101C26;
+	/*padding:1%;*/
+	height: 80px;
+	/*overflow:hidden;*/
+}
+.nav-wrap{
+	height:80px;
 }
 .noStick{
-	width:100%;
-	/*height:10%;*/
-	padding:3%;
+	background-color:#101C26;
+	/*padding:3%;*/
 }
 .stick{
 	position: fixed;
+	height:80px;
 	top:0;
 	left:0;
 	width: 100%;
 	background-color: rgba(16, 28, 38, .9);
-	padding:1%;
+	/*padding:1%;*/
+}
+.stick + .homeSplash{
+	padding-top:80px;
 }
 .homeSplash{
 	grid-row: 2;
@@ -148,29 +158,8 @@ nav li{
 .bodyDiv main{
 	grid-row:3;
 }
-/*.bodyDiv footer{
-	grid-row:4;
-	/*max-height: 10%;
-}*/
-footer{
-	background-color:#101C26;
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	overflow: hidden;
-	width: 100%;
-	height: 7%;
-}
-footer li{
-	display: inline;
-	list-style: none;
-	text-decoration: none;
-	font-family: "Playfair Display SC", serif;
-	padding:5%;
-}
-footer ul{
-	margin-left:35%;
-	margin-top:1%;
+.logo{
+	margin-left:-33%;
 }
 nav{
 	/*in the top bar div, col 3*/
@@ -199,16 +188,21 @@ nav{
 }
 .dropdown:hover .drop-content{
 	display:block;
-	/*background-color:#101C26;*/
+	background-color: rgba(16, 28, 38, .9);
 	padding-top:7%;
 }
 .dropdown:hover .dropbtn{
-	background-color:#D9896C;
-	color:#101C26;
+	color: #D9896C;
+	text-decoration: underline;
 }
 
 
 /*Header and footer links*/
+.topBar ul{
+	margin-top:5%;
+	margin-left: 25%;
+	/*text-align: right;*/
+}
 /*lvha*/
 .topBar a:link{
 	/*color: #101C26;*/
@@ -228,28 +222,6 @@ nav{
 	text-decoration: underline;
 }
 .topBar a:active{
-	color:#D9AC59;
-	/*font-size: 1.2em;*/
-	text-decoration: underline;
-}
-footer a:link{
-	/*color: #101C26;*/
-	color:#D9AC59;
-	font-size: .95em;
-	text-decoration: none;
-}
-footer a:visited{
-	/*color: #101C26;*/
-	color:#D9AC59;
-	/*font-size: 1.2em;*/
-	text-decoration: none;
-}
-footer a:hover{
-	color: #D9896C;
-	/*font-size: 1.2em;*/
-	text-decoration: underline;
-}
-footer a:active{
 	color:#D9AC59;
 	/*font-size: 1.2em;*/
 	text-decoration: underline;
@@ -277,9 +249,11 @@ footer a:active{
 	margin:4%;
 }
 .aColumn img{
-	max-width: 75%;
-	min-width: 70%;
-	margin-left: 10%;
+	/*max-width: 75%;
+	min-width: 70%;*/
+	height:50%;
+	width:100%;
+	/*margin-left: 15%;*/
 	align-content: center;
 }
 .aColumn p{
@@ -289,14 +263,16 @@ footer a:active{
 }
 
 
-/*Styling for the Story Category --> maybe all the category pages.*/
+/*Styling for the Category pages */
 
 .catHeader{
 	padding:4%; 
+	color:#D9AC59;
 }
 .storyCatText{
 	max-width: 40%;
 	margin-left: 30%;
+	margin-bottom:4%;
 }
 .storyCatGen{
 	display:flex;
@@ -307,44 +283,71 @@ footer a:active{
 
 .oneStory{
 	max-width: 30%;
-	margin-left:4%;
-	margin-right: 4%;
+/*	margin-left:8%;
+	margin-right: 4%;*/
+	/*padding:4%;*/
 	min-width: 25%;
-	display:grid;
-	grid-template-columns: 30% 70%;
-	/*grid-template-rows: 1fr 1fr; */
+	/*display:grid;*/
+	/*grid-template-columns: 30% 70%;*/
+	/*grid-template-rows: 1fr 1fr 1fr; */
+	/*grid-template-rows: 40% 15% 45%; */
 	margin-top: 2%;
-	/*border: 1px solid black;*/
+/*	border-left: 1px solid #101C26;
+	border-top:1px solid #101C26;*/
+	margin-bottom: 5%;
+	background-color: white;
+}
+.oneStory a{
+	color:;
+	text-decoration:none;
+}
+.storyButton{
+	display:grid;
 }
 .storyHead{
-	/*grid-row: 1;*/
-	grid-column: 2;
-	text-align: left;
-	font-size: 1em;
+	grid-row: 2;
+	/*grid-column: 2;*/
+	/*text-align: left;*/
+	font-size: 1.5em;
 	padding:0;
-	margin-bottom:2%;
-	font-family: ;
-	/*border: 1px solid black;*/
-
+	margin-bottom:4%;
+	margin-top:4%;
+	text-align: center;
+	line-height: 1.2em;
+	/*text-decoration-line:underline;*/
+	max-width:80%;
+	margin-left: 10%;
 }
 .thumbnailHere{
-	max-width: 100px;
-	grid-column: 1;
-	grid-row: 1 / span 2;
+	/*width: 300px;*/
+	width:100%;
+	height:275px;
+	/*grid-column: 1;*/
+	/*grid-row: 1 / span 2;*/
+	grid-row:1;
+	/*margin-left: 5%;*/
 }
 .storyblurb{
-	grid-column: 2;
-	grid-row:2;
+	/*grid-column: 2;*/
+	grid-row:3;
+	color:#101C26;
+	padding:5%;
 	/*border: 1px solid black;*/
 }
 
 .catDiv{
 	display:grid;
+	min-height:100%;
 }
-/*This might need to be min of 100% if it gets long enough to break the crease.*/
 .catDiv main{
-	min-height:50%;
+	margin-bottom:1%;
 }
+/*Flipping the color of the cat page*/
+.catDiv{
+	background-color: #101C26;
+	color:#D9AC59;
+}
+
 
 /*working on the story*/
 .storyDiv{
@@ -357,14 +360,14 @@ footer a:active{
 	padding-bottom:5%;
 	padding-top:5%;
 }
+.storyDiv p{
+	margin-bottom: 4%;
+}
 .storyMain{
 	min-height: 100%;
 	margin-bottom: 2%;
 }
-.storyFoot{
-	position: relative;
-	min-height: 75px;
-}
+
 .storyImg{
 	max-width: 50%;
 	margin-left: 25%;
@@ -372,6 +375,9 @@ footer a:active{
 .storyHeader{
 	font-family: "Playfair Display SC", serif;
 	font-size: 2em;
+	border-bottom:1px #273940 solid;
+	max-width: 50%;
+	margin-left: 20%;
 }
 blockquote{
 	font-size:1.7em;
@@ -384,28 +390,252 @@ blockquote{
 .sidenote{
 	display: block;
 	float: left;
-	width:15%;
+	width:30%;
 	margin:3%;
-	margin-left:-20%;
+	margin-left:-35%;
+	font-size: .8em;
+	text-align: right;
+	margin-bottom: 3%;
+}
+.manytip{
+	/*font-size: .7em;*/
+	margin-top:-10%;
+	margin-bottom:10%;
+	width:40%;
+	margin-left:-55%;
+}
+.smallLink{
+	background-color:#101C26;
+	color:#D9AC59;
+	font-family: "Playfair Display SC", serif;
+	padding:5%;
+	border-radius: 3px;
+	border-color:#D9AC59;
+	border-width: 1px;
+	border-style: solid;
+	margin-top:15%;
+	text-decoration: none;
+}
+.smallLink:hover{
+	background-color:#D9AC59;
+	color:#101C26;
+	border-color:#101C26;
+}
+.smallLink:active{
+	background-color:#101C26;
+	color:#D9AC59;
+	border-color:#D9AC59;
+}
+.sideP{
+	margin-bottom:5%;
 }
 
+/*and working with the tips/facts pages (individual tips/facts)*/
+.tipDiv{
+	max-width:50%;
+	margin-left: 25%;
+	font-family: "Raleway", sans-serif;
+	line-height: 1.6em;
+	font-size: 1.2em;
+	min-height: 100%;
+	padding-bottom:5%;
+	padding-top:5%;
+}
+.tipDiv p{
+	margin-bottom: 4%;
+}
+.tipMain{
+	min-height: 100%;
+	margin-bottom: 2%;
+}
+.storyImg{
+	max-width: 50%;
+	margin-left: 25%;
+}
+.tipHeader{
+	font-family: "Playfair Display SC", serif;
+	font-size: 2em;
+	border-bottom:1px #273940 solid;
+	max-width: 50%;
+	margin-left: 20%;
+}
+blockquote{
+	font-size:1.7em;
+	margin:3%;
+	padding:3%;
+	border-left: 1px #273940 solid;
+	color:#273940;
+	line-height: 1.9em;
+}
+figcaption{
+	font-size:.8em;
+	margin-bottom:2%;
+	margin-top:-1%;
+}
+.innerList{
+	margin-left:10%;
+	max-width: 80%;
+}
+
+/*The about page*/
+.aboutPage{
+	display:grid;
+}
+.aboutPage .nav-wrap{
+	grid-row:1;
+}
+.aboutPage main{
+	grid-row:3;
+	max-width: 60%;
+	margin-left: 20%;
+}
+.aboutPage h1{
+	grid-row:2;
+	padding-bottom:2%;
+	padding-top:5%;
+	border-bottom: 1px #D9AC59 double;
+	margin: 5%;
+	margin-bottom:7%;
+}
+.aboutPage h2{
+	padding:3%;
+	border: 1px #D9AC59 double;
+	font-size: 1.1em;
+}
+.aboutPage h3{
+	padding:3%;
+	margin-top: 2%;
+	margin-bottom: 4%;
+	font-size: 1.1em;
+	font-family: "Playfair Display SC", serif;
+	color:#D9AC59;
+	background-color:#273940;
+	border: 1px #D9AC59 double;
+	line-height: 1.2em;
+}
+.aboutPage p{
+	margin-bottom: 3%;
+	line-height: 1.3em;
+}
+.aboutPage ol{
+	max-width: 80%;
+	margin-left:10%;
+}
+.aboutPage li{
+	margin-bottom: 3%;
+}
 
 /*media querries*/
-/*@media screen and (min-width: 900px), projection and (min-width: 900px), tv and (min-width: 900px) {
-/*#container{margin-left:10px}*/
-/*.sidenote {
-	float:none;
-	position: absolute;
-	right: 0;
-	width: 5%;
-	border: 1px solid #000;
-	margin: 0;
-	/*margin-right: -208px;
+@media screen and (max-width: 875px){
+	/*also breaking point for the navigation*/
+	nav li{
+		display: block;
+		margin-top:2%;
+		margin-left:7%;
+		/*list-style: none;
+		text-decoration: none;
+		font-family: "Playfair Display SC", serif;
+		margin-left:10%;
+		color:#D9AC59;
+		font-size: 1.2em;*/
+	}
+	.logo{
+		margin-left: 0%;
+	}
+	.dropdown{
+		margin-left:0%;
+		margin-top:4%;
+	}
+	.oneStory{
+		max-width: 45%;
+		min-width: 35%;
+		/*margin-top: 2%;
+		margin-bottom: 5%;
+		background-color: white;*/
+	}
 }
-}*/
-/*@media screen and (min-width: 1070px), projection and (min-width: 1070px), tv and (min-width: 1070px) {
-#container{margin-left:auto}
-}*/
+@media screen and (max-width: 650px){
+	/*This is the break point for the category pages. drop to two cols*/
+	.oneStory{
+		max-width: 75%;
+		min-width: 50%;
+		/*margin-top: 2%;
+		margin-bottom: 5%;
+		background-color: white;*/
+	}
+	.storyCatText{
+		max-width:80%;
+		margin-left: 10%;
+	}
+	/*for home too*/
+	.mainCols{
+		display:grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+	}
+	#mainStories{
+		grid-column: 1;
+		grid-row:1;
+		margin-left: 15%;
+	}
+	#mainFacts{
+		grid-column: 1;
+		grid-row:2;
+		/*margin-right:8%;*/
+		margin-left:15%;
+	}
+	#mainTips{
+		grid-column: 1;
+		grid-row:3;
+		margin-left: 15%;
+	}
+	.aColumn{
+		max-width:500px;
+	}
+	.aColumn p{
+		border-bottom: 1px #273940 solid;
+		padding-bottom:5%;
+		width: 80%;
+		margin-left:10%;
+		margin-right:10%;
+	}
+	.aColumn h2{
+		/*margin-top:-10%;*/
+	}
+	.homeSplash{
+		display: grid;
+		grid-template-rows: 1fr 1fr 1fr;
+		grid-template-columns: 25% 50% 20%;
+	}
+	.homeSplash img{
+		max-width: 33px;
+	}
+	.mainHeader{
+		grid-row: 2;
+		grid-column: 2;
+		background-color:rgba(39, 57, 64, .9);
+		color:rgba(217, 172, 89, 1);
+		margin-top:3%;
+		margin-bottom:3%;
+	}
+	.headerText{
+		display:none;
+/*		grid-row:2;
+		grid-column: 2;
+		text-align: justify;
+		line-height: 1.2em;
+		background-color: rgba(217, 172, 89, .7);
+		padding:3%;*/
+	}
+	.downArrow{
+		grid-row: 3;
+		grid-column: 2;
+		text-align: center;
+	}
+	.bodyDiv main{
+		grid-row:3;
+	}
+}
 
 
 

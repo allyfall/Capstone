@@ -10,7 +10,6 @@ var img = '';
 
 // this function is called in pull story, and will fetch the image.
 function displayImage(img){
-	console.log(img);
 	var pathRef = storage.ref(img);
 	var refURL = "gs://capstone-5899a.appspot.com/"+img+"";
 	var gsReference = storage.refFromURL(refURL);
@@ -50,10 +49,7 @@ function getTip(tipName, theStory){
 
 function pullStory(){
 	var whichStory = window.location.hash;
-	console.log(whichStory);
 	whichStory = whichStory.replace(/[_\W]+/g, "");
-	console.log(whichStory);
-	var countingSpace = 0;
 	// now we need to get the text from firebase. and also the image.
 	// db.collection("stories").where("storyname", "==", whichStory)
 		// .get()
@@ -84,43 +80,38 @@ function pullStory(){
 							theStory += "<p>" + content.value + "</p>";
 							break;
 						case 'img':
-							theStory += '<img src="' + content.value + '" alt="' + content.alt + '" />';
+							theStory += '<img src="img/' + content.value + '" alt="' + content.alt + '" /><figcaption>'+content.caption+'</figcaption>';
 							break;
 						case 'blockquote':
 							theStory += '<blockquote>' + content.value + '</blockquote>';
 							break;
 						case 'tip':
 							console.log(content.value);
-							// theStory += '<small class="sidenote"><h3 class="smallH>"'+content.title+'</h3><p class="sideP">'+content.blurb+'</p><a href="tip.html#"'+content.value+' class="smallLink">'+content.buttonText+'</a></small>';
-							// // countingSpace = countingSpace + 1;
-							// // theStory += getTip(tipName, theStory);
-							// // var tipReturn = getTip(tipName, theStory);
-							// // console.log(tipReturn);
-							// var docTip = db.collection("stories").doc(tipName);
-							// var addTip = '';
-							// docTip.get().then(function(doc){
-							// 	if(doc.exists){
-							// 		var tipTitle = doc.data().tipname;
-							// 		var tipBlurb = doc.data().blurb;
-							// 		var tipButtonText = doc.data().button;
-							// 		addTip = '<small class="sidenote"><h3 class="sideHeader">'+tipTitle+'</h3><p class="sidePara">'+
-							// 			tipBlurb+'</p><button type="button" class="sideButton">'+tipButtonText+'</button></small>';
-							// 			console.log(addTip);
-							// 			// theStory += '<p>'+tipTitle+'</p>';
-							// 		// theStory += '<div class="sidenote"><h3 class="sideHeader">'+tipTitle+'</h3><p class="sidePara">'+tipBlurb+'</p><button type="button" class="sideButton">'+tipButtonText+'</button></div>';
-							// 		console.log(theStory);
-							// 		// return '<small class="sidenote"><h3 class="sideHeader">'+tipTitle+'</h3><p class="sidePara">'+
-							// 			// tipBlurb+'</p><button type="button" class="sideButton">'+tipButtonText+'</button></small>';
-							// 	}
-							// 	else{
-							// 		console.log("no such document");
-							// 		// var addTip = "";
-							// 	}
-							// }).catch(function(error){
-							// 		console.log("error getting doc ", error);
-							// });
+							theStory += '<small class="sidenote"><h3 class="smallH>"'+content.title+'</h3><p class="sideP">'+content.blurb+'</p><a href="tip.html#'+content.value+'" class="smallLink">'+content.buttonText+'</a></small>';
 							break;
 						case 'fact':
+							theStory += '<small class="sidenote"><h3 class="smallH>"'+content.title+'</h3><p class="sideP">'+content.blurb+'</p><a href="tip.html#'+content.value+'" class="smallLink">'+content.buttonText+'</a></small>';
+							break;
+						case 'list':
+							console.log("entered list case");
+							var theList = '<ul class="innerList">';
+							content.value.forEach(value => {
+								console.log(value.type);
+								switch(value.type){
+									case 'item':
+										theList += "<li>" + value.value + "</li>";
+										break;
+									case 'tip':
+										theList += '<small class="sidenote manytip"><h3 class="smallH>"'+value.title+'</h3><p class="sideP">'+value.blurb+'</p><a href="tip.html#'+value.value+'" class="smallLink">'+value.buttonText+'</a></small>';
+										break;
+									case 'fact':
+										theList += '<small class="sidenote manytip"><h3 class="smallH>"'+value.title+'</h3><p class="sideP">'+value.blurb+'</p><a href="tip.html#'+value.value+'" class="smallLink">'+value.buttonText+'</a></small>';
+										break;
+									default:
+										//do nothing
+								}
+							})
+							theStory += theList;
 							break;
 						default: 
 							// Do nothing. 
@@ -163,8 +154,7 @@ $(document).ready(function(){
 	var menu = $('.topBar'); 
 	var	pos = menu.offset();
 	$(window).scroll(function(){
-		console.log("sticky entered");
-		if($(this).scrollTop() > pos.top+menu.height() && menu.hasClass('noStick')){
+		if($(this).scrollTop() > pos.top && menu.hasClass('noStick')){
 			menu.removeClass('noStick').addClass('stick');
 		} else if($(this).scrollTop() <= pos.top && menu.hasClass('stick')){
 			menu.removeClass('stick').addClass('noStick');
