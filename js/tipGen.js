@@ -3,9 +3,9 @@ console.log("Story Firebase Check in action");
 var db = firebase.firestore();
 var stories = db.collection("stories");
 var storage = firebase.storage();
-var tiphere = $('.tipDiv');
-var tipHeader = $('.tipHeader');
-var tipImg = $('.storyImg');
+var storyhere = $('.storyDiv');
+var storyHeader = $('.storyHeader');
+var storyImg = $('.storyImg');
 var img = '';
 
 // this function is called in pull story, and will fetch the image.
@@ -15,9 +15,9 @@ function displayImage(img){
 	var refURL = "gs://capstone-5899a.appspot.com/"+img+"";
 	var gsReference = storage.refFromURL(refURL);
 	gsReference.getDownloadURL().then(function(url){
-		tipImg.attr("src", url);
+		storyImg.attr("src", url);
 		// this is also something I'll have to get from Firebase I think. 
-		tipImg.attr("alt", "header image for this story.");
+		storyImg.attr("alt", "header image for this story.");
 
 	});
 }
@@ -44,30 +44,35 @@ function pullStory(){
 						theStory += '<blockquote>' + content.value + '</blockquote>';
 						break;
 					case 'tip':
-						theStory += '<small class="sidenote"><h3 class="smallH>"'+content.title+'</h3><p class="sideP">'+content.blurb+'</p><a href="tip.html#"'+content.value+' class="smallLink">'+content.buttonText+'</a></small>';
+						theStory += '<small class="sidenote"><p class="sideP">'+content.blurb+'</p><a href="story.html#"'+content.value+' class="smallLink">'+content.buttonText+'</a></small>';
+						// theStory += '<small class="sidenote"><h3 class="smallH>"'+content.title+'</h3><p class="sideP">'+content.blurb+'</p><a href="story.html#"'+content.value+' class="smallLink">'+content.buttonText+'</a></small>';
 						break;
 					case 'fact':
-						theStory += '<small class="sidenote"><h3 class="smallH>"'+content.title+'</h3><p class="sideP">'+content.blurb+'</p><a href="tip.html#'+content.value+'" class="smallLink">'+content.buttonText+'</a></small>';
+						theStory += '<small class="sidenote"><p class="sideP">'+content.blurb+'</p><a href="fact.html#'+content.value+'" class="smallLink">'+content.buttonText+'</a></small>';
+						// theStory += '<small class="sidenote"><h3 class="smallH>"'+content.title+'</h3><p class="sideP">'+content.blurb+'</p><a href="fact.html#'+content.value+'" class="smallLink">'+content.buttonText+'</a></small>';
 						break;
 					case 'list':
 						console.log("entered list case");
-						var theList = '<ul>';
-						console.log(theList);
-						doc.data().value.forEach(value => {
-							console.log(doc);
+						var theList = '<ul class="innerList">';
+						content.value.forEach(value => {
+							console.log(value.type);
 							switch(value.type){
 								case 'item':
-									theList += "<li>" + content.value + "</li>";
-									break;
-								case 'fact':
+									theList += "<li>" + value.value + "</li>";
 									break;
 								case 'tip':
+									theList += '<small class="sidenote manytip"><p class="sideP">'+value.blurb+'</p><a href="story.html#'+value.value+'" class="smallLink">'+value.buttonText+'</a></small>';
+									// theList += '<small class="sidenote manytip"><h3 class="smallH>"'+value.title+'</h3><p class="sideP">'+value.blurb+'</p><a href="story.html#'+value.value+'" class="smallLink">'+value.buttonText+'</a></small>';
+									break;
+								case 'fact':
+									theList += '<small class="sidenote manytip"><p class="sideP">'+value.blurb+'</p><a href="fact.html#'+value.value+'" class="smallLink">'+value.buttonText+'</a></small>';
+									// theList += '<small class="sidenote manytip"><h3 class="smallH>"'+value.title+'</h3><p class="sideP">'+value.blurb+'</p><a href="fact.html#'+value.value+'" class="smallLink">'+value.buttonText+'</a></small>';
 									break;
 								default:
 									//do nothing
 							}
-							theStory += theList;
 						})
+						theStory += theList;
 						break;
 					default: 
 						// Do nothing. 
@@ -76,9 +81,9 @@ function pullStory(){
 
 			img = doc.data().image;
 			displayImage(img);
-			title = doc.data().tipTitle;
-			tipHeader.html(title);
-			tiphere.html(theStory);
+			title = doc.data().storyname;
+			storyHeader.html(title);
+			storyhere.html(theStory);
 		} else{
 			console.log("no such document");
 		}

@@ -69,12 +69,12 @@ function pullStory(){
 						break;
 					case 'tip':
 						console.log(content.value);
-						// theStory += '<small class="sidenote"><h3 class="smallH>"'+content.title+'</h3><p class="sideP">'+content.blurb+'</p><a href="tip.html#'+content.value+'" class="smallLink">'+content.buttonText+'</a></small>';
 						theStory += '<small class="sidenote"><p class="sideP">'+content.blurb+'</p><a href="tip.html#'+content.value+'" class="smallLink">'+content.buttonText+'</a></small>';
+						// theStory += '<small class="sidenote"><h3 class="smallH>"'+content.title+'</h3><p class="sideP">'+content.blurb+'</p><a href="tip.html#'+content.value+'" class="smallLink">'+content.buttonText+'</a></small>';
 						break;
 					case 'fact':
-						// theStory += '<small class="sidenote"><h3 class="smallH>"'+content.title+'</h3><p class="sideP">'+content.blurb+'</p><a href="fact.html#'+content.value+'" class="smallLink">'+content.buttonText+'</a></small>';
-						theStory += '<small class="sidenote"><p class="sideP">'+content.blurb+'</p><a href="fact.html#'+content.value+'" class="smallLink">'+content.buttonText+'</a></small>';
+						theStory += '<small class="sidenote"><p class="sideP">'+content.blurb+'</p><a href="story.html#'+content.value+'" class="smallLink">'+content.buttonText+'</a></small>';
+						// theStory += '<small class="sidenote"><h3 class="smallH>"'+content.title+'</h3><p class="sideP">'+content.blurb+'</p><a href="story.html#'+content.value+'" class="smallLink">'+content.buttonText+'</a></small>';
 						break;
 					case 'list':
 						console.log("entered list case");
@@ -90,8 +90,8 @@ function pullStory(){
 									// theList += '<small class="sidenote manytip"><h3 class="smallH>"'+value.title+'</h3><p class="sideP">'+value.blurb+'</p><a href="tip.html#'+value.value+'" class="smallLink">'+value.buttonText+'</a></small>';
 									break;
 								case 'fact':
-									theList += '<small class="sidenote manytip"><p class="sideP">'+value.blurb+'</p><a href="fact.html#'+value.value+'" class="smallLink">'+value.buttonText+'</a></small>';
-									// theList += '<small class="sidenote manytip"><h3 class="smallH>"'+value.title+'</h3><p class="sideP">'+value.blurb+'</p><a href="fact.html#'+value.value+'" class="smallLink">'+value.buttonText+'</a></small>';
+									theList += '<small class="sidenote manytip"><p class="sideP">'+value.blurb+'</p><a href="story.html#'+value.value+'" class="smallLink">'+value.buttonText+'</a></small>';
+									// theList += '<small class="sidenote manytip"><h3 class="smallH>"'+value.title+'</h3><p class="sideP">'+value.blurb+'</p><a href="story.html#'+value.value+'" class="smallLink">'+value.buttonText+'</a></small>';
 									break;
 								default:
 									//do nothing
@@ -150,4 +150,3 @@ $(document).ready(function(){
 		}
 	});
 });
-

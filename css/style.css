@@ -130,25 +130,32 @@ nav li{
 	background-size: cover;
 	/*this grid to to arrange homeSplash/ splash pages*/
 	display: grid;
-	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-rows: 1fr .5fr 1fr;
 	grid-template-columns: 1fr 1fr 1fr;
 }
-.homeSplash img{
+/*.homeSplash img{
 	max-width: 33px;
-}
+}*/
 .mainHeader{
-	grid-row: 1;
-	grid-column: 2;
-	background-color:rgba(39, 57, 64, .7);
-	color:rgba(217, 172, 89, 1);
+	/*grid-row: 1;*/
+	grid-column: 1/4;
+	/*background-color:rgba(39, 57, 64, .7);*/
+	color:rgba(16, 28, 38, 1);
 	margin-top:3%;
-	margin-bottom:3%;
+	/*margin-bottom:3%;*/
+	font-size:3em;
+	padding:0%;
 }
 .headerText{
-	grid-row:2;
+	/*grid-row:2;*/
 	grid-column: 2;
-	text-align: justify;
-	line-height: 1.2em;
+	text-align: center;
+	line-height: 1.6em;
+	font-size: 1.3em;
+	font-family:"Playfair Display SC";
+	background-color: rgba(217, 172, 89, .7);
+	padding:2%;
+	/*top:-15%;*/
 }
 .downArrow{
 	grid-row: 3;
@@ -182,9 +189,6 @@ nav{
 .drop-content a{
 	padding:2%;
 	display: block;
-}
-.drop-content a:hover{
-	background-color: ;
 }
 .dropdown:hover .drop-content{
 	display:block;
@@ -245,15 +249,15 @@ nav{
 	grid-column: 3;
 	margin-right: 15%;
 }
+/*#mainTips img{
+	height: 50%;
+}*/
 .aColumn{
 	margin:4%;
 }
 .aColumn img{
-	/*max-width: 75%;
-	min-width: 70%;*/
-	height:50%;
+	height: 180px;
 	width:100%;
-	/*margin-left: 15%;*/
 	align-content: center;
 }
 .aColumn p{
@@ -362,6 +366,11 @@ nav{
 }
 .storyDiv p{
 	margin-bottom: 4%;
+}
+.storyDiv img{
+	max-width:97%;
+	max-height:500px;
+	/*margin-left: 10%;*/
 }
 .storyMain{
 	min-height: 100%;
@@ -477,6 +486,8 @@ figcaption{
 	max-width: 80%;
 }
 
+
+
 /*The about page*/
 .aboutPage{
 	display:grid;
@@ -484,24 +495,36 @@ figcaption{
 .aboutPage .nav-wrap{
 	grid-row:1;
 }
+.bigLogo{
+	grid-row:2;
+	max-height: 300px;
+	margin-top:5%;
+}
+.bgCol{
+	max-width: 100%;
+	width: 100vw;
+	height: 90vh;
+	background-image: url("../img/stock2.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 .aboutPage main{
-	grid-row:3;
+	grid-row:4;
 	max-width: 60%;
 	margin-left: 20%;
 }
 .aboutPage h1{
-	grid-row:2;
+	grid-row:3;
 	padding-bottom:2%;
-	padding-top:5%;
-	border-bottom: 1px #D9AC59 double;
-	margin: 5%;
-	margin-bottom:7%;
+	padding-top:2%;
+	margin: 3%;
+	color: #D9AC59;
 }
-.aboutPage h2{
+/*.aboutPage h2{
 	padding:3%;
 	border: 1px #D9AC59 double;
 	font-size: 1.1em;
-}
+}*/
 .aboutPage h3{
 	padding:3%;
 	margin-top: 2%;
@@ -512,6 +535,14 @@ figcaption{
 	background-color:#273940;
 	border: 1px #D9AC59 double;
 	line-height: 1.2em;
+}
+.aboutPage h3:hover{
+	color:#273940;
+	background-color:#D9AC59;
+	text-decoration: underline;
+}
+.aboutPage .p1{
+	margin-top:4%;
 }
 .aboutPage p{
 	margin-bottom: 3%;
@@ -532,12 +563,6 @@ figcaption{
 		display: block;
 		margin-top:2%;
 		margin-left:7%;
-		/*list-style: none;
-		text-decoration: none;
-		font-family: "Playfair Display SC", serif;
-		margin-left:10%;
-		color:#D9AC59;
-		font-size: 1.2em;*/
 	}
 	.logo{
 		margin-left: 0%;
@@ -549,25 +574,12 @@ figcaption{
 	.oneStory{
 		max-width: 45%;
 		min-width: 35%;
-		/*margin-top: 2%;
-		margin-bottom: 5%;
-		background-color: white;*/
 	}
-}
-@media screen and (max-width: 650px){
-	/*This is the break point for the category pages. drop to two cols*/
-	.oneStory{
-		max-width: 75%;
-		min-width: 50%;
-		/*margin-top: 2%;
-		margin-bottom: 5%;
-		background-color: white;*/
+	.bigLogo{
+		max-height:200px;
 	}
-	.storyCatText{
-		max-width:80%;
-		margin-left: 10%;
-	}
-	/*for home too*/
+
+	/*for the home page columns*/
 	.mainCols{
 		display:grid;
 		grid-template-columns: 1fr;
@@ -581,7 +593,6 @@ figcaption{
 	#mainFacts{
 		grid-column: 1;
 		grid-row:2;
-		/*margin-right:8%;*/
 		margin-left:15%;
 	}
 	#mainTips{
@@ -592,6 +603,11 @@ figcaption{
 	.aColumn{
 		max-width:500px;
 	}
+	.aColumn img{
+		height: 300px;
+		width:100%;
+		align-content: center;
+	}
 	.aColumn p{
 		border-bottom: 1px #273940 solid;
 		padding-bottom:5%;
@@ -599,9 +615,20 @@ figcaption{
 		margin-left:10%;
 		margin-right:10%;
 	}
-	.aColumn h2{
-		/*margin-top:-10%;*/
+}
+
+
+@media screen and (max-width: 650px){
+	/*This is the break point for the category pages. drop to two cols*/
+	.oneStory{
+		max-width: 75%;
+		min-width: 50%;
 	}
+	.storyCatText{
+		max-width:80%;
+		margin-left: 10%;
+	}
+
 	.homeSplash{
 		display: grid;
 		grid-template-rows: 1fr 1fr 1fr;
@@ -620,12 +647,6 @@ figcaption{
 	}
 	.headerText{
 		display:none;
-/*		grid-row:2;
-		grid-column: 2;
-		text-align: justify;
-		line-height: 1.2em;
-		background-color: rgba(217, 172, 89, .7);
-		padding:3%;*/
 	}
 	.downArrow{
 		grid-row: 3;
@@ -637,6 +658,124 @@ figcaption{
 	}
 }
 
+@media screen and (max-width: 440px){
+	main{
+		max-width: 100vw;
+	}
+	.logo{
+		margin-left:10%;
+	}
+	.topBar ul{
+		margin-top:5%;
+		margin-left: 5%;
+		/*text-align: right;*/
+	}
+	.bgCol{
+		/*background-color: rgba(16, 28, 38, .8);*/
+		/*max-width: 100%;*/
+		width: 100vw;
+		height: 60vh;
+		background-image: url("../img/stock2.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.mainHeader{
+		width: 100%;
+		padding:3%;
+		margin-top:15%;
+		margin-right:5%;
+		/*text-align: center;*/
+		grid-column: 1/4;
+	}
+	.homeSplash{
+		width:100vw;
+	}
+	#mainTips{
+		grid-column: 1;
+		grid-row:3;
+		margin-left: 15%;
+		margin-top: 15%;
+	}
+	.dropdown{
+		position: relative;
+		display: inline-block;
+		margin-left: 5%;
+	}
+	.drop-content{
+		display: inline;
+		position:absolute;
+		min-width:190px;
+		z-index: 1;
+	}
+	.drop-content a{
+		display: inline;
+	}
+	.dropbtn{
+		display: none;
+	}
+	nav{
+		grid-column: 2/4;
+		align-content: right;
+		/*text-align: right;*/
+		/*float:right;*/
+	}
+	.nav-wrap{
+		max-width: 100vw;
+	}
+	.aboutLink{
+		text-align: right;
+		/*margin-left:120%;*/
+	}
+
+	/*topic columns on the main page*/
+	.aColumn img{
+		width:100vw;
+		height: 250px;
+		margin:0%;
+	}
+	.aColumn{
+		margin:0%;
+		max-width: 100vw;
+	}
+	#mainStories{
+		margin-left:0%;
+	}
+	#mainFacts{
+		margin-left:0%;
+	}
+	#mainTips{
+		margin-left:0%;
+		margin-top:0%;
+	}
+
+	/*Stories*/
+	.sidenote{
+		width:70%;
+		/*max-width: 250px;*/
+		margin:3%;
+		padding:3%;
+		margin-left: 15%;
+		text-align: left;
+		border:1px solid #101C26;
+	}
+	.thumbnailHere{
+		height:200px;
+	}
+	.storyDiv{
+		max-width:90%;
+		margin-left: 10%;
+		margin-right: 10%;
+		text-align: justify;
+	}
+	.storyHeader{
+		max-width: 100%;
+		margin-left: 0%;
+	}
+	.storyImg{
+		max-width: 100%;
+		margin-left: 0%;
+	}
+}
 
 
 
