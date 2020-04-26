@@ -14,11 +14,6 @@ footer, header, hgroup, menu, nav, section {
 }
 
 /*/* Color Theme Swatches in Hex */
-/* purple red { color: #8C3746; }
- green { color: #4D593C; }
- yellow { color: #F2C791; }
- beige { color: #F2CCB6; }
- light pink { color: #F2D5D5; }*/
 
  /* Color Theme Swatches in Hex 
 d blue{ color: #101C26; }
@@ -71,7 +66,10 @@ h2{
 	margin-bottom:5%;
 	color:#101C26;
 }
-
+.homeTwo{
+	margin-bottom:3%;
+	padding-bottom: 2%;
+}
 .aColumn a{
 	color:black;
 }
@@ -249,14 +247,11 @@ nav{
 	grid-column: 3;
 	margin-right: 15%;
 }
-/*#mainTips img{
-	height: 50%;
-}*/
 .aColumn{
 	margin:4%;
 }
 .aColumn img{
-	height: 180px;
+	height: 200px;
 	width:100%;
 	align-content: center;
 }
@@ -287,22 +282,12 @@ nav{
 
 .oneStory{
 	max-width: 30%;
-/*	margin-left:8%;
-	margin-right: 4%;*/
-	/*padding:4%;*/
 	min-width: 25%;
-	/*display:grid;*/
-	/*grid-template-columns: 30% 70%;*/
-	/*grid-template-rows: 1fr 1fr 1fr; */
-	/*grid-template-rows: 40% 15% 45%; */
 	margin-top: 2%;
-/*	border-left: 1px solid #101C26;
-	border-top:1px solid #101C26;*/
 	margin-bottom: 5%;
 	background-color: white;
 }
 .oneStory a{
-	color:;
 	text-decoration:none;
 }
 .storyButton{
@@ -310,26 +295,19 @@ nav{
 }
 .storyHead{
 	grid-row: 2;
-	/*grid-column: 2;*/
-	/*text-align: left;*/
 	font-size: 1.5em;
 	padding:0;
 	margin-bottom:4%;
 	margin-top:4%;
 	text-align: center;
 	line-height: 1.2em;
-	/*text-decoration-line:underline;*/
 	max-width:80%;
 	margin-left: 10%;
 }
 .thumbnailHere{
-	/*width: 300px;*/
 	width:100%;
 	height:275px;
-	/*grid-column: 1;*/
-	/*grid-row: 1 / span 2;*/
 	grid-row:1;
-	/*margin-left: 5%;*/
 }
 .storyblurb{
 	/*grid-column: 2;*/
@@ -486,7 +464,59 @@ figcaption{
 	max-width: 80%;
 }
 
+.outsideLink{
+	padding-bottom: 5%;
+	display:block;
+	margin-top:-3%;
+	color:#101C26;
+}
+.outsideLink:visited{
+	color:#273940;
+}
+.outsideLink:hover{
+	color:#D9AC59;
+}
+.outsideLink:active{
+	color:#273940;
+}
+.bottomButton{
+	background-color:#101C26;
+	color:#D9AC59;
+	font-family: "Playfair Display SC", serif;
+	padding:1%;
+	border-radius: 3px;
+	border-color:#D9AC59;
+	border-width: 1px;
+	border-style: solid;
+	text-decoration: none;
+	width:15%;
+	height:30%;
+	margin-left:25%;
+}
 
+.bottomButton a:visited{
+	color:#D9AC59;
+}
+.bottomButton a:hover{
+	background-color:#D9AC59;
+	color:#101C26;
+	border-color:#101C26;
+}
+.bottomButton a:active{
+	background-color:#101C26;
+	color:#D9AC59;
+	border-color:#D9AC59;
+}
+.bottomButton:hover{
+	background-color:#D9AC59;
+	color:#101C26;
+	border-color:#101C26;
+}
+.bottomButton a:active{
+	background-color:#101C26;
+	color:#D9AC59;
+	border-color:#D9AC59;
+}
 
 /*The about page*/
 .aboutPage{
@@ -557,6 +587,14 @@ figcaption{
 }
 
 /*media querries*/
+@media screen and (max-width: 950px){
+	.thumbnailHere{
+		height:220px;
+	}
+}
+
+
+
 @media screen and (max-width: 875px){
 	/*also breaking point for the navigation*/
 	nav li{
@@ -578,7 +616,9 @@ figcaption{
 	.bigLogo{
 		max-height:200px;
 	}
-
+	.thumbnailHere{
+		height:260px;
+	}
 	/*for the home page columns*/
 	.mainCols{
 		display:grid;
@@ -656,8 +696,15 @@ figcaption{
 	.bodyDiv main{
 		grid-row:3;
 	}
+	.thumbnailHere{
+		height:320px;
+	}
 }
-
+@media screen and (max-width: 440px){
+	.thumbnailHere{
+		height:260px;
+	}
+}
 @media screen and (max-width: 440px){
 	main{
 		max-width: 100vw;

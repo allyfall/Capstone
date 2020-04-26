@@ -54,7 +54,15 @@ function pullCat(){
 				thumbnail = doc.data().image;
 				id = doc.id;
 				// need to generate the div before calling displayImage
-				prettyDiv = "<div class='oneStory'><a href='story.html#"+id+"'class='storyButton' id='"+id+"'><h2 class='storyHead'>"+title+"</h2><img src='#' alt='#' class='thumbnailHere' id='img"+id+"'><p class='storyblurb'>"+blurb+"</p></a></div>";
+				if(whichCat == "story"){
+					prettyDiv = "<div class='oneStory'><a href='story.html#"+id+"'class='storyButton' id='"+id+"'><h2 class='storyHead'>"+title+"</h2><img src='#' alt='#' class='thumbnailHere' id='img"+id+"'><p class='storyblurb'>"+blurb+"</p></a></div>";
+				} else if(whichCat == "tips"){
+					prettyDiv = "<div class='oneStory'><a href='tip.html#"+id+"'class='storyButton' id='"+id+"'><h2 class='storyHead'>"+title+"</h2><img src='#' alt='#' class='thumbnailHere' id='img"+id+"'><p class='storyblurb'>"+blurb+"</p></a></div>";
+				} else if(whichCat == "facts"){
+					prettyDiv = "<div class='oneStory'><a href='fact.html#"+id+"'class='storyButton' id='"+id+"'><h2 class='storyHead'>"+title+"</h2><img src='#' alt='#' class='thumbnailHere' id='img"+id+"'><p class='storyblurb'>"+blurb+"</p></a></div>";
+				} else{
+					prettyDiv = "<div class='oneStory'><a href='story.html#"+id+"'class='storyButton' id='"+id+"'><h2 class='storyHead'>"+title+"</h2><img src='#' alt='#' class='thumbnailHere' id='img"+id+"'><p class='storyblurb'>"+blurb+"</p></a></div>";
+				}
 				storyList.append(prettyDiv);
 				displayImage(thumbnail, id);
 			});

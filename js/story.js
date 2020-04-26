@@ -76,6 +76,9 @@ function pullStory(){
 						// theStory += '<small class="sidenote"><h3 class="smallH>"'+content.title+'</h3><p class="sideP">'+content.blurb+'</p><a href="fact.html#'+content.value+'" class="smallLink">'+content.buttonText+'</a></small>';
 						theStory += '<small class="sidenote"><p class="sideP">'+content.blurb+'</p><a href="fact.html#'+content.value+'" class="smallLink">'+content.buttonText+'</a></small>';
 						break;
+					case 'link':
+						theStory += '<a href="'+content.value+'" class="outsideLink">'+content.linkText+'</a>';						
+						break;
 					case 'list':
 						console.log("entered list case");
 						var theList = '<ul class="innerList">';
